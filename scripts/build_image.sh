@@ -3,4 +3,5 @@ echo "*****************"
 echo "*** Building ****"
 echo "*****************"
 
-docker build -t akki/angular-app ../demo-app
+WORKSPACE=/home/akshay/Documents/jenkins/jenkins_home/workspace/pipeline-demo
+docker build -t akki/angular-app $WORKSPACE/demo-app
