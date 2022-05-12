@@ -3,7 +3,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './scripts/build_image.sh'
+                echo "Building"
+            }
+        }
+        
+        stage('test') {
+            steps {
+                echo "testing"
+            }
+        }
+        
+        stage('deploy') {
+            steps {
+                echo "deploying"
             }
         }
     }
