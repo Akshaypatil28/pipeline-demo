@@ -3,6 +3,7 @@ pipeline {
     tools {
         gradle 'Gradle-6.2'
     }
+    
     stages {
         stage('run frontend') {
             steps {
@@ -15,9 +16,7 @@ pipeline {
         stage('run backend') {
             steps {
                 echo "executing gradke...."
-                withGradle() {
-                    sh './gradlew -v'
-                }
+                sh './gradlew -v'
             }
         }
     }
