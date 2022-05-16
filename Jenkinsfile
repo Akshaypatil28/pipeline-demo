@@ -1,3 +1,4 @@
+def gv
 pipeline {
     agent any
     tools {
@@ -7,14 +8,16 @@ pipeline {
     stages {
         stage('run frontend') {
             steps {
-                echo "executing yarn...."
-                nodejs('Node-10.17') {
-                    sh 'yarn install'
+                script { 
+                    gv = load "script.groovy"
                 }
             }
         }
         stage('run backend') {
             steps {
+                script {
+                    gv.buildApp()
+                }
                 echo "executing gradke...."
                 sh './gradlew -v'
             }
