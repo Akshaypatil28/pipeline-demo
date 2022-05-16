@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo "executing gradke...."
                 withGradle() {
-                    sh './graldew -v'
+                    sh './gradlew -v'
                 }
             }
         }
