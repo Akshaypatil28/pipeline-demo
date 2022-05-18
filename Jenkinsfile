@@ -1,25 +1,18 @@
-def gv
 pipeline {
-    agent any
-    tools {
-        gradle 'Gradle-6.2'
-    }
-    
+    agent none 
     stages {
-        stage('run frontend') {
+        stage('Example Build') {
+            agent { docker 'maven:3.8.1-adoptopenjdk-11' } 
             steps {
-                script { 
-                    gv = load "script.groovy"
-                }
+                echo 'Hello, Maven'
+                sh 'mvn --version'
             }
         }
-        stage('run backend') {
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
             steps {
-                script {
-                    gv.buildApp()
-                }
-                echo "executing gradke...."
-                sh './gradlew -v'
+                echo 'Hello, JDK'
+                sh 'java -version'
             }
         }
     }
