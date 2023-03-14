@@ -1,1 +1,3 @@
-commonPipeline()
+commonPipeline{
+  test = 'params'
+}
