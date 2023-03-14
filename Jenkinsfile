@@ -1,3 +1,1 @@
-commonPipeline {
-   appLanguage = 'js'
-}
+pipelineStructure()
